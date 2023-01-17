@@ -1,10 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {themeReducer} from "./features/theme";
+import {themeReducer} from "../features/theme";
 import {useDispatch} from "react-redux";
-import {orderMapReducer} from "./features/ordersMap";
+import {orderMapReducer} from "../features/ordersMap";
 import createSagaMiddleware from "redux-saga";
 import {CurriedGetDefaultMiddleware} from "@reduxjs/toolkit/dist/getDefaultMiddleware";
-import saga from "saga";
+import saga from "store/saga";
 
 let sagaMiddleware = createSagaMiddleware();
 const middleware = (getDefaultMiddleware: CurriedGetDefaultMiddleware) => [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];

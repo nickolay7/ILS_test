@@ -6,8 +6,6 @@ import {PayloadAction} from "@reduxjs/toolkit";
 export function* fetchDataSaga(action: PayloadAction<Order>): any {
   const { payload } = action;
 
-  console.log(action, 'action');
-
   try {
     let result = yield call(() => fetchPath(payload));
     yield put(fetchSuccess(result));
