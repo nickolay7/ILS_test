@@ -11,11 +11,7 @@ const Wrapper = styled.div`
   grid-gap: 6rem;
 `;
 
-interface OrdersMapProps {
-
-}
-
-export const OrdersMap = ({  }: OrdersMapProps) => {
+export const OrdersMap = () => {
   return (
     <Wrapper>
       <OrdersTable />

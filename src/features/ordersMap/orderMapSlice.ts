@@ -30,17 +30,20 @@ const initialState: OrderPaths = {
 };
 
 const orderMapSlice = createSlice({
-  name: "@@orderMap/orders",
+  name: "@@orderMap",
   initialState,
   reducers: {
     setOrder: (state: OrderPaths, action: PayloadAction<Order>) => {
       state.order = action.payload;
     },
-    fetchData: (state: OrderPaths, action: PayloadAction<LatLng[]>) => {
+    fetchSuccess: (state: OrderPaths, action: PayloadAction<LatLng[]>) => {
       state.polyline = action.payload;
+    },
+    fetchData: (_, action: PayloadAction<Order>) => {
+      console.log('Loading...');
     }
   }
 });
 
-export const {setOrder, fetchData} = orderMapSlice.actions;
+export const { setOrder, fetchData, fetchSuccess } = orderMapSlice.actions;
 export const orderMapReducer = orderMapSlice.reducer;

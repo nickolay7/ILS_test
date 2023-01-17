@@ -20,7 +20,7 @@ const Title = styled(Link).attrs({
   to: '/',
 })`
   color: var(--colors-text);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-md);
   text-decoration: none;
   font-weight: var(--fw-bold);
 `;
@@ -31,7 +31,7 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Telezon</Title>
+          <Title>ILS test</Title>
           <ThemeSwitcher />
         </Wrapper>
       </Container>

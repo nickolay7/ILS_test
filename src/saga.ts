@@ -1,18 +1,20 @@
-import { call, takeEvery, takeLatest, put } from "redux-saga/effects";
+import { call, takeEvery, put } from "redux-saga/effects";
 import {fetchPath} from "shared/api/api";
-import {sagaActions} from "sagaActions";
-import {fetchData, Order} from "features/ordersMap";
+import {fetchSuccess, Order} from "features/ordersMap";
 import {PayloadAction} from "@reduxjs/toolkit";
 
-export function* fetchDataSaga({ payload }: PayloadAction<Order>): any {
+export function* fetchDataSaga(action: PayloadAction<Order>): any {
+  const { payload } = action;
+
+  console.log(action, 'action');
+
   try {
     let result = yield call(() => fetchPath(payload));
-    yield put(fetchData());
+    yield put(fetchSuccess(result));
   } catch (e) {
     yield put({ type: "TODO_FETCH_FAILED" });
   }
 }
-
 export default function* rootSaga() {
-  yield takeEvery(sagaActions.FETCH_DATA_SAGA, fetchDataSaga);
+  yield takeEvery('@@orderMap/fetchData', fetchDataSaga);
 }

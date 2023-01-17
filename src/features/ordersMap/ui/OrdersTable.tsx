@@ -1,15 +1,8 @@
 import React from "react";
-import {data} from "../../../data";
+import {data} from "data";
 import {Table} from "antd";
 import styled from "styled-components";
-import {useDispatch, useSelector} from "react-redux";
-import {themeSelector} from "../../theme/themeSelectors";
-import {orderMapSelector} from "../orderMapSelector";
-import {setOrder} from "../orderMapSlice";
 import {useOrder} from "../lib/useOrder";
-
-interface OrdersTableProps {
-}
 
 const Wrapper = styled.div`
   padding: 2rem;
@@ -47,7 +40,7 @@ const columns = [
 ];
 
 const dataSource = data.map((item) => ({ ...item, key: item.id }));
-export const OrdersTable = ({}: OrdersTableProps) => {
+export const OrdersTable = () => {
   const [, chooseOrder] = useOrder();
 
   return (

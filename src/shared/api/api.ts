@@ -13,5 +13,7 @@ export const fetchPath = async (params: Order): Promise<{lat: number, lng: numbe
 
   const {data: {waypoints}} = await axios.get<Paths>(`${BASE_URL}/${fromLat},${fromLng};${toLat},${toLng}?overview=false`);
 
-  return waypoints.map(({location}: { location: number[] }) => ({lat: location[0], lng: location[1]}));
+  const path = waypoints.map(({location}: { location: number[] }) => ({lat: location[0], lng: location[1]}));
+
+  return [{lat: fromLat, lng: fromLng}].concat(path).concat([{lat: toLat, lng: toLng}]);
 };
