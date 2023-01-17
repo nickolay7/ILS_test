@@ -27,6 +27,6 @@ export const useChangePosition = () => {
 
   useEffect(() => {
     map.flyTo({lat: fromLat, lng: fromLng});
-    map.fitBounds([[fromLat, fromLng], [toLat, toLng]], {maxZoom: 11});
+    map.fitBounds([[fromLat, fromLng], [toLat, toLng]], {maxZoom: 10});
   }, [orderPaths.polyline, fromLng, fromLat, map, toLng, toLat]);
 };
