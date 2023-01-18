@@ -7,7 +7,7 @@ interface Paths {
   waypoints: any[]
 }
 
-const BASE_URL = 'http://router.project-osrm.org/route/v1/driving';
+const BASE_URL = 'https://router.project-osrm.org/route/v1/driving';
 export const fetchPath = async (params: Order): Promise<{lat: number, lng: number}[]> => {
   const {fromLat, fromLng, toLat, toLng} = params;
 
